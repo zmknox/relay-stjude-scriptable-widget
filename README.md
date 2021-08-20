@@ -8,7 +8,7 @@ To install:
 - download the Scriptable file included in this repository
 - import the file into Scriptable
 - add a Medium widget to your home screen
-- choose the Re,ay St. Jude Progress script
+- choose the Relay St. Jude Progress script
 
 ## Credits
 
