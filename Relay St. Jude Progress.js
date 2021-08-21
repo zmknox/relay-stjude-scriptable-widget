@@ -6,6 +6,7 @@ const width = 320;
 const primaryTextColor = new Color("#efefef");
 
 const widget = new ListWidget();
+widget.setPadding(8, 15, 8, 10);
 
 // widget background
 const gradient = new LinearGradient();
@@ -89,7 +90,7 @@ widget.addSpacer(6);
 
 // progress bar & percentage
 const progressBar = widget.addImage(createProgressBar(total, soFar, 20, true));
-progressBar.imageSize=new Size(width, 20);
+progressBar.imageSize = new Size(width, 20);
 
 widget.addSpacer(4);
 
@@ -131,7 +132,7 @@ for (let milestone of body.data.campaign.milestones) {
     
         // milestone progress bar
         const milestoneProgressBar = widget.addImage(createProgressBar(milestoneTotal, soFar, 10, false));    
-        milestoneProgressBar.imageSize=new Size(width, 10);
+        milestoneProgressBar.imageSize = new Size(width, 10);
         
         milestonesDisplayed += 1;
     }
