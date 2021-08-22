@@ -107,8 +107,6 @@ const sortedMilestones = body.data.campaign.milestones.sort((a, b) => {
     return aVal - bVal;
 });
 
-console.log(sortedMilestones);
-
 // progress bars for milestones
 for (let milestone of sortedMilestones) {
     if (maxMilestones != undefined && milestonesDisplayed >= maxMilestones) {
