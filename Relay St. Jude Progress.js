@@ -82,7 +82,7 @@ titleText.font = Font.boldSystemFont(24);
 widget.addSpacer(8);
 
 // soFar / total in text
-const amountText = widget.addText(`$${soFar.toLocaleString()} / $${total.toLocaleString()}`);
+const amountText = widget.addText(`${soFar.toLocaleString('en-US', {style: 'currency', currency: 'USD'})} / ${total.toLocaleString('en-US', {style: 'currency', currency: 'USD'})}`);
 amountText.textColor = primaryTextColor;
 amountText.font = Font.heavyRoundedSystemFont(20);
 
@@ -98,8 +98,19 @@ widget.addSpacer(4);
 // (1 looks good on a medium widget, 3 or 4 on a large)
 let maxMilestones = args.widgetParameter;
 let milestonesDisplayed = 0;
+
+// Ensure milestones are in order from lowest to highest total
+const sortedMilestones = body.data.campaign.milestones.sort((a, b) => {
+    const aVal = parseFloat(a.amount.value);
+    const bVal = parseFloat(b.amount.value);
+    
+    return aVal - bVal;
+});
+
+console.log(sortedMilestones);
+
 // progress bars for milestones
-for (let milestone of body.data.campaign.milestones) {
+for (let milestone of sortedMilestones) {
     if (maxMilestones != undefined && milestonesDisplayed >= maxMilestones) {
         break;
     }
